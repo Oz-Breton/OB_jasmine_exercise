@@ -45,7 +45,7 @@ function update() {
 function calculateMonthlyPayment(values) {
   const P = values.amount;
   const i = values.rate/12;
-  const n = values.years/12;
+  const n = values.years*12;
 
   const dividend = P * i;
   const divisor = 1 - Math.pow(1 + i, -1 * n);
