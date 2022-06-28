@@ -29,7 +29,7 @@ function setupIntialValues() {
   document.getElementById("loan-amount").value = initValues.amount;
   document.getElementById("loan-years").value = initValues.years;
   document.getElementById("loan-rate").value = initValues.rate;
-  updateMonthly(calculateMonthlyPayment(initValues));
+  update();
 }
 
 // Get the current values from the UI
@@ -44,14 +44,16 @@ function update() {
 // that always has 2 decimal places.
 function calculateMonthlyPayment(values) {
   const P = values.amount;
-  const i = values.rate/12;
-  const n = values.years*12;
+  const i = (values.rate / 100)/12;
+  const n = Math.floor(values.years*12);
+  if (i === 0){
+    return (P/n).toFixed(2);
+  }
 
   const dividend = P * i;
-  const divisor = 1 - Math.pow(1 + i, -1 * n);
+  const divisor = 1 - Math.pow(1 + i, -n);
   let num = dividend / divisor;
-  num = Math.round(num*100)/100;
-  return String(num);
+  return num.toFixed(2);
 
 }
 
