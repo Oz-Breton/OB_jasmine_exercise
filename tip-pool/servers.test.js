@@ -10,7 +10,7 @@ describe("Servers test (with setup and tear-down)", function() {
     expect(Object.keys(allServers).length).toEqual(1);
     expect(allServers['server' + serverId].serverName).toEqual('Alice');
   });
-
+  
   afterEach(function() {
     serverTbody.firstChild.remove();
   });
