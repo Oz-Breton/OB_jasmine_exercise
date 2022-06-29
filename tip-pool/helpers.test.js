@@ -5,12 +5,12 @@ describe("Test Helper Functions:", function () {
         calculateTipPercent(200, 10),
     ];
 
-    it ("should test tipPercent", function(){
+    it ("should calculate tip percent correctly", function(){
         expect(tests[0]).toEqual(20);
         expect(tests[1]).toEqual(10);
         expect(tests[2]).toEqual(5);
     });
-    it("should test our helper function", function () {
+    it("should sum an aspect of all payments", function() {
         allPayments = {
             payment1: { tipAmt: 10, billAmt: 50, tipPercent: tests[0] },
             payment2: { tipAmt: 10, billAmt: 100, tipPercent: tests[1] },
